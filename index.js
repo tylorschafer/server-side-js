@@ -15,15 +15,8 @@ app.get('/', (request, response) => {
   response.send('Hello, Publications')
 })
 
-app.get('/api/v1/papers', (request, response) => {
-  database('papers').select()
-    .then((papers) => {
-      response.status(200).json(papers)
-    })
-    .catch((error) => {
-      response.status(500).json({ error })
-    })
-})
+const papers = require('./lib/routes/api/v1/papers')
+app.use('/api/v1/papers', papers)
 
 app.get('/api/v1/footnotes', (request, response) => {
   database('footnotes').select()
@@ -76,7 +69,7 @@ app.post('/api/v1/footnotes', (request, response) => {
 })
 
 app.get('/api/v1/papers/:id', (request, response) => {
-  database('papers').where('id', request.params.id).select()
+  Paper.all().where('id', request.params.id).select()
     .then(papers => {
       if (papers.length) {
         response.status(200).json(papers)

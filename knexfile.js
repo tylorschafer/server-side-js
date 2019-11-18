@@ -6,7 +6,7 @@ module.exports = {
     client: 'pg',
     connection: 'postgres://localhost/publications',
     migrations: {
-        directory: './db/migrations'
+      directory: './db/migrations'
     },
     seeds: {
       directory: './db/seeds/dev'
@@ -18,7 +18,7 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'my_db',
-      user:     'username',
+      user: 'username',
       password: 'password'
     },
     pool: {
@@ -34,7 +34,7 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'my_db',
-      user:     'username',
+      user: 'username',
       password: 'password'
     },
     pool: {
@@ -46,4 +46,4 @@ module.exports = {
     }
   }
 
-};
+}
